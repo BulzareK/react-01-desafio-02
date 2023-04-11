@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyLogin from "./components/Login";
+import { Alert } from "./components/Alert";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [message, setMessage] = useState({
+    mensaje: "",
+    status: ""
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App p-3 mb-2 bg-dark text-white">
+      <MyLogin setMessage={setMessage} />
+      <Alert mensaje={message.mensaje} status={message.status} />
     </div>
   );
 }
-
-export default App;
